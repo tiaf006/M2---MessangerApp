@@ -15,6 +15,11 @@ class LoginViewController: UIViewController {
         return scrollView
     }()
     
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        view.backgroundColor = .red
+    }
+    
     private let emailField: UITextField = {
         let field = UITextField()
         field.autocapitalizationType = .none
