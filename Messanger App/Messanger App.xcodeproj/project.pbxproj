@@ -37,6 +37,47 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		B10F95582959AD6200F6F20E /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				B1BE37202959A89F00D36E64 /* AppDelegate.swift */,
+				B1BE37222959A89F00D36E64 /* SceneDelegate.swift */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		B10F95592959B07500F6F20E /* Models */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		B10F955A2959B08200F6F20E /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				B1BE372B2959A8A100D36E64 /* LaunchScreen.storyboard */,
+				B1BE37262959A89F00D36E64 /* Main.storyboard */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		B10F955B2959B09E00F6F20E /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				B10F955F2959B10200F6F20E /* LogIn-Regester */,
+				B1BE37242959A89F00D36E64 /* ViewController.swift */,
+			);
+			path = Controllers;
+			sourceTree = "<group>";
+		};
+		B10F955F2959B10200F6F20E /* LogIn-Regester */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = "LogIn-Regester";
+			sourceTree = "<group>";
+		};
 		B1BE37142959A89F00D36E64 = {
 			isa = PBXGroup;
 			children = (
@@ -56,12 +97,11 @@
 		B1BE371F2959A89F00D36E64 /* Messanger App */ = {
 			isa = PBXGroup;
 			children = (
-				B1BE37202959A89F00D36E64 /* AppDelegate.swift */,
-				B1BE37222959A89F00D36E64 /* SceneDelegate.swift */,
-				B1BE37242959A89F00D36E64 /* ViewController.swift */,
-				B1BE37262959A89F00D36E64 /* Main.storyboard */,
+				B10F955B2959B09E00F6F20E /* Controllers */,
+				B10F955A2959B08200F6F20E /* Views */,
+				B10F95592959B07500F6F20E /* Models */,
+				B10F95582959AD6200F6F20E /* Resources */,
 				B1BE37292959A8A100D36E64 /* Assets.xcassets */,
-				B1BE372B2959A8A100D36E64 /* LaunchScreen.storyboard */,
 				B1BE372E2959A8A100D36E64 /* Info.plist */,
 			);
 			path = "Messanger App";
