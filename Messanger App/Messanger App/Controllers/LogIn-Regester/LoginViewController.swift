@@ -24,6 +24,7 @@ class LoginViewController: UIViewController {
         field.layer.borderWidth = 1
         field.layer.borderColor = UIColor.lightGray.cgColor
         field.placeholder = "Email Address..."
+
         
         field.leftView = UIView(frame: CGRect(x: 0, y: 0, width: 5, height: 0))
         field.leftViewMode = .always
@@ -47,5 +48,39 @@ class LoginViewController: UIViewController {
         return field
     }()
     
+
+
+
+    let signButton: UIButton = {
+        let button = UIButton(frame: .zero)
+        button.setTitle("Sign in", for: .normal)
+        button.addTarget(self, action: #selector(signin), for: .touchUpInside)
+        return button
+    }()
+
+
+
+
+
+    @objc func signin() {
+        guard emailField.isEmail(),
+              let email = emailField.text,
+              let password = passwordField.text,
+              password.count > 3 else {
+            print("email or password is invalid")
+            return
+        }
+//        Auth.auth().signIn(withEmail: email, password: password) { authResult, error in
+//            print("sign in user finished")
+//            print(authResult)
+//            print(error)
+//        }
+   }
+
+    @objc func goToSignUp() {
+        let signupVC = LoginViewController()
+        self.navigationController?.pushViewController(signupVC, animated: true)
+    }
+
     
 }

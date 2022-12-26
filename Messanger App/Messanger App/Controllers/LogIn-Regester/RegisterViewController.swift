@@ -7,6 +7,8 @@
 import UIKit
 class RegisterViewController: UIViewController, UITextFieldDelegate {
     
+    
+
     private let scrollView: UIScrollView = {
         let scrollView = UIScrollView()
         scrollView.clipsToBounds = true
@@ -16,24 +18,29 @@ class RegisterViewController: UIViewController, UITextFieldDelegate {
     private let emailField: UITextField = {
         let field = UITextField()
         field.placeholder = "Email Address..."
-       // ...
+        field.backgroundColor = .gray
+        field.keyboardType = .emailAddress
         return field
     }()
     private let passwordField: UITextField = {
         let field = UITextField()
-       // ...
-        field.backgroundColor = .white
+        field.placeholder = "Password ..."
+        field.backgroundColor = .gray
         field.isSecureTextEntry = true
         return field
     }()
     private let firstNameField: UITextField = {
         let field = UITextField()
-       // ...
+        field.placeholder = "First Name"
+        field.backgroundColor = .gray
+        field.keyboardType = .alphabet
         return field
     }()
     private let lastNameField: UITextField = {
         let field = UITextField()
-          //  ....
+        field.placeholder = "Last Name"
+        field.backgroundColor = .gray
+        field.keyboardType = .alphabet
         return field
     }()
     
@@ -58,9 +65,11 @@ class RegisterViewController: UIViewController, UITextFieldDelegate {
     }()
     
     
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        print("wwwwwww")
         emailField.delegate = self
         passwordField.delegate = self
         

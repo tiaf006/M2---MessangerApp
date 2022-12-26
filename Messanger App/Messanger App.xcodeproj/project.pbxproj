@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		4F1AC3C22959E232004ED825 /* Email - Password.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F1AC3C12959E232004ED825 /* Email - Password.swift */; };
 		B18C378D2959D84300132E73 /* ConversationsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B18C378C2959D84300132E73 /* ConversationsViewController.swift */; };
 		B18C378F2959D8BF00132E73 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B18C378E2959D8BF00132E73 /* LoginViewController.swift */; };
 		B18C37912959D94100132E73 /* RegisterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B18C37902959D94100132E73 /* RegisterViewController.swift */; };
@@ -19,6 +20,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		4F1AC3C12959E232004ED825 /* Email - Password.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Email - Password.swift"; sourceTree = "<group>"; };
 		B18C378C2959D84300132E73 /* ConversationsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConversationsViewController.swift; sourceTree = "<group>"; };
 		B18C378E2959D8BF00132E73 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		B18C37902959D94100132E73 /* RegisterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterViewController.swift; sourceTree = "<group>"; };
@@ -82,6 +84,7 @@
 			isa = PBXGroup;
 			children = (
 				B18C378E2959D8BF00132E73 /* LoginViewController.swift */,
+				4F1AC3C12959E232004ED825 /* Email - Password.swift */,
 				B18C37902959D94100132E73 /* RegisterViewController.swift */,
 			);
 			path = "LogIn-Regester";
@@ -193,6 +196,7 @@
 				B18C37912959D94100132E73 /* RegisterViewController.swift in Sources */,
 				B18C378F2959D8BF00132E73 /* LoginViewController.swift in Sources */,
 				B18C378D2959D84300132E73 /* ConversationsViewController.swift in Sources */,
+				4F1AC3C22959E232004ED825 /* Email - Password.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
