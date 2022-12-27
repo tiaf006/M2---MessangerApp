@@ -19,6 +19,7 @@ class RegisterViewController: UIViewController, UITextFieldDelegate {
         let field = UITextField()
         field.placeholder = "Email Address..."
         field.backgroundColor = .white
+        field.layer.borderColor = UIColor.lightGray.cgColor
         field.keyboardType = .emailAddress
         return field
     }()
@@ -26,6 +27,7 @@ class RegisterViewController: UIViewController, UITextFieldDelegate {
         let field = UITextField()
         field.placeholder = "Password ..."
         field.backgroundColor = .white
+        field.layer.borderColor = UIColor.lightGray.cgColor
         field.isSecureTextEntry = true
         return field
     }()
@@ -33,6 +35,7 @@ class RegisterViewController: UIViewController, UITextFieldDelegate {
         let field = UITextField()
         field.placeholder = "First Name"
         field.backgroundColor = .white
+        field.layer.borderColor = UIColor.lightGray.cgColor
         field.keyboardType = .alphabet
         return field
     }()
@@ -40,6 +43,7 @@ class RegisterViewController: UIViewController, UITextFieldDelegate {
         let field = UITextField()
         field.placeholder = "Last Name"
         field.backgroundColor = .white
+        field.layer.borderColor = UIColor.lightGray.cgColor
         field.keyboardType = .alphabet
         return field
     }()
