@@ -36,7 +36,6 @@ class RegisterViewController: UIViewController, UITextFieldDelegate {
         field.layer.borderColor = UIColor.lightGray.cgColor
         field.placeholder = "First Name"
         field.backgroundColor = .white
-       
         field.keyboardType = .alphabet
         return field
     }()
@@ -44,7 +43,7 @@ class RegisterViewController: UIViewController, UITextFieldDelegate {
         let field = UITextField()
         field.placeholder = "Last Name"
         field.backgroundColor = .white
-        field.layer.borderColor = UIColor.lightGray.cgColor
+        field.layer.borderColor = UIColor.red.cgColor
         field.keyboardType = .alphabet
         return field
     }()
@@ -58,16 +57,22 @@ class RegisterViewController: UIViewController, UITextFieldDelegate {
         button.layer.cornerRadius = 12
         button.layer.masksToBounds = true
         button.titleLabel?.font = .systemFont(ofSize: 20, weight: .bold)
-        button.addTarget(RegisterViewController.self, action: #selector(signUp), for: .touchUpInside)
+        button.addTarget(self, action: #selector(signUp), for: .touchUpInside)
         return button
     }()
     
     private let imageView: UIImageView = {
         let imageView = UIImageView()
         imageView.image = UIImage(systemName: "person")
+        imageView.layer.borderColor = UIColor(red: 0.5, green: 0.5, blue: 0.5, alpha: 0.8).cgColor
+        imageView.layer.borderWidth = 2
         imageView.tintColor = .gray
-        imageView.layer.cornerRadius = 70
-        imageView.contentMode = .scaleAspectFit
+        //imageView.layer.cornerRadius = 100
+        imageView.layer.masksToBounds = false
+        imageView.frame(forAlignmentRect: CGRectMake(0,0,100,100))
+        imageView.layer.cornerRadius = imageView.frame.width/2.0
+        imageView.clipsToBounds = true
+       // imageView.contentMode = .scaleAspectFit
         return imageView
     }()
     
@@ -97,7 +102,7 @@ class RegisterViewController: UIViewController, UITextFieldDelegate {
     }
     
     @objc func layOuts(){
-       // scrollView.backgroundColor = .blue
+        navigationItem.title = "Register"
         scrollView.translatesAutoresizingMaskIntoConstraints = false
         scrollView.topAnchor.constraint(equalTo: view.topAnchor,constant: 16).isActive = true
         scrollView.bottomAnchor.constraint(equalTo: view.bottomAnchor,constant: -16).isActive = true
@@ -111,8 +116,8 @@ class RegisterViewController: UIViewController, UITextFieldDelegate {
         imageView.trailingAnchor.constraint(equalTo: view.trailingAnchor,constant: -120).isActive = true
         imageView.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: -600).isActive = true
         imageView.backgroundColor = .clear
-        imageView.heightAnchor.constraint(equalToConstant: 54).isActive = true
-        imageView.widthAnchor.constraint(equalToConstant: 54).isActive = true
+        //imageView.heightAnchor.constraint(equalToConstant: 54).isActive = true
+        //imageView.widthAnchor.constraint(equalToConstant: 54).isActive = true
         
         
         firstNameField.translatesAutoresizingMaskIntoConstraints = false
