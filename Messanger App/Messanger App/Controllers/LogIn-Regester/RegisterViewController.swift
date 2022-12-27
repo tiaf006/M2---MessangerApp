@@ -4,11 +4,11 @@
 //
 //  Created by TAIF Al-zahrani on 02/06/1444 AH.
 //
+
 import UIKit
+import FirebaseAuth
+
 class RegisterViewController: UIViewController, UITextFieldDelegate {
-    
-    
-    
     private let scrollView: UIScrollView = {
         let scrollView = UIScrollView()
         scrollView.clipsToBounds = true
@@ -33,9 +33,10 @@ class RegisterViewController: UIViewController, UITextFieldDelegate {
     }()
     private let firstNameField: UITextField = {
         let field = UITextField()
+        field.layer.borderColor = UIColor.lightGray.cgColor
         field.placeholder = "First Name"
         field.backgroundColor = .white
-        field.layer.borderColor = UIColor.lightGray.cgColor
+       
         field.keyboardType = .alphabet
         return field
     }()
@@ -57,6 +58,7 @@ class RegisterViewController: UIViewController, UITextFieldDelegate {
         button.layer.cornerRadius = 12
         button.layer.masksToBounds = true
         button.titleLabel?.font = .systemFont(ofSize: 20, weight: .bold)
+        button.addTarget(RegisterViewController.self, action: #selector(signUp), for: .touchUpInside)
         return button
     }()
     
@@ -146,7 +148,28 @@ class RegisterViewController: UIViewController, UITextFieldDelegate {
         registerButton.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 20).isActive = true
         registerButton.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -20).isActive = true
         registerButton.heightAnchor.constraint(equalToConstant: 44).isActive = true
-        //registerButton.borderStyle = .roundedRect
-        
     }
+    
+    @objc func signUp() {
+        guard emailField.isEmail(),
+              let email = emailField.text,
+              let password = passwordField.text,
+              password.count > 3 else {
+            print("email or password is invalid")
+            return
+        }
+        Auth.auth().createUser(withEmail: email, password: password) { authResult, error in
+            print("Create user finished")
+            print(authResult)
+            print(error)
+            
+            let storyBoard = UIStoryboard(name: "Main", bundle: nil)
+            let profileVC = storyBoard.instantiateViewController(withIdentifier: "profileVC")
+            
+            self.navigationController?.pushViewController(profileVC, animated: true)
+            
+           
+        }
+    }
+    
 }

@@ -6,6 +6,8 @@
 //
 
 import UIKit
+import FirebaseAuth
+
 class LoginViewController: UIViewController {
     // if not signed in, show the login screen, allow the user to sign up
    
@@ -29,8 +31,6 @@ class LoginViewController: UIViewController {
     
     let facebookBtn: UIButton = {
         let button = UIButton()
-       // button.setTitle("Log In", for: .normal)
-        //button.setBackgroundImage(facebookImg.image, for: .normal)
         button.setTitleColor(.white, for: .normal)
         button.layer.cornerRadius = 12
         button.layer.masksToBounds = true
@@ -38,16 +38,6 @@ class LoginViewController: UIViewController {
         return button
     }()
     
- /*   private let II: UIImageView = {
-        let imageView = UIImageView()
-        imageView.image = UIImage(named: "facebook!!")
-        imageView.tintColor = .gray
-        imageView.backgroundColor = .red
-        imageView.layer.cornerRadius = 70
-        imageView.contentMode = .scaleAspectFit
-        return imageView
-    }()
-  */
     let googleImg : UIImageView = {
         let imageView = UIImageView()
         imageView.image = UIImage(named: "google!!")
@@ -59,8 +49,6 @@ class LoginViewController: UIViewController {
     
     let googleBtn: UIButton = {
         let button = UIButton()
-       // button.setTitle("Log In", for: .normal)
-        //button.setBackgroundImage(facebookImg.image, for: .normal)
         button.setTitleColor(.white, for: .normal)
         button.layer.cornerRadius = 12
         button.layer.masksToBounds = true
@@ -73,7 +61,9 @@ class LoginViewController: UIViewController {
         return scrollView
     }()
     
+    
     override func viewDidLoad() {
+        
         super.viewDidLoad()
         view.backgroundColor = .white
         addSubViews()
@@ -96,6 +86,7 @@ class LoginViewController: UIViewController {
         field.backgroundColor = .white
         return field
     }()
+    
     private let passwordField: UITextField = {
         let field = UITextField()
         field.autocapitalizationType = .none
@@ -140,6 +131,9 @@ class LoginViewController: UIViewController {
     }
     
     @objc func layOuts(){
+        navigationItem.title = "Log In"
+        navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Go To Regiter", style: UIBarButtonItem.Style.plain, target: self, action: #selector(goToRegister))
+        
         scrollView.translatesAutoresizingMaskIntoConstraints = false
         scrollView.topAnchor.constraint(equalTo: view.topAnchor,constant: 16).isActive = true
         scrollView.bottomAnchor.constraint(equalTo: view.bottomAnchor,constant: -16).isActive = true
@@ -182,10 +176,7 @@ class LoginViewController: UIViewController {
         facebookBtn.topAnchor.constraint(equalTo: signButton.bottomAnchor, constant: 44).isActive = true
         facebookBtn.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 30).isActive = true
         facebookBtn.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -30).isActive = true
-        facebookBtn.heightAnchor.constraint(equalToConstant: 64).isActive = true        //II.heightAnchor.constraint(equalToConstant: 24).isActive = true
-        //II.widthAnchor.constraint(equalToConstant: 24).isActive = true
-        //II.trailingAnchor.constraint(equalTo: signButton.trailingAnchor, constant: -4).isActive = true
-        //II.topAnchor.constraint(equalTo: signButton.topAnchor, constant: 4).isActive = true
+        facebookBtn.heightAnchor.constraint(equalToConstant: 64).isActive = true
         
         googleBtn.setBackgroundImage(googleImg.image, for: .normal)
         googleBtn.translatesAutoresizingMaskIntoConstraints = false
@@ -196,26 +187,28 @@ class LoginViewController: UIViewController {
         
             }
 
-
-  /*  @objc func signin() {
+    @objc func signin() {
         guard emailField.isEmail(),
               let email = emailField.text,
               let password = passwordField.text,
               password.count > 3 else {
             print("email or password is invalid")
             return
-        } */
-//        Auth.auth().signIn(withEmail: email, password: password) { authResult, error in
-//            print("sign in user finished")
-//            print(authResult)
-//            print(error)
-//        }
- //  }
-
-  /*  @objc func goToSignUp() {
-        let signupVC = LoginViewController()
-        self.navigationController?.pushViewController(signupVC, animated: true)
+        }
+        Auth.auth().signIn(withEmail: email, password: password) { authResult, error in
+            print("sign in user finished")
+            print(authResult)
+            print(error)
+            
+            let storyBoard = UIStoryboard(name: "Main", bundle: nil)
+                    let profileVC = storyBoard.instantiateViewController(withIdentifier: "profileVC")
+                    
+                    self.navigationController?.pushViewController(profileVC, animated: true)
+        }
     }
-*/
     
+    @objc func goToRegister() {
+        let signupVC = RegisterViewController()
+        self.navigationController?.pushViewController(signupVC, animated: true)
+           }
 }
