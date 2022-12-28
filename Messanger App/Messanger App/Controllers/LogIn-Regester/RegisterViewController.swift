@@ -9,6 +9,7 @@ import UIKit
 import FirebaseAuth
 import FirebaseDatabase
 import Firebase
+import FirebaseStorage
 
 class RegisterViewController: UIViewController, UITextFieldDelegate {
     private let scrollView: UIScrollView = {
@@ -70,7 +71,7 @@ class RegisterViewController: UIViewController, UITextFieldDelegate {
     
     private let imageView: UIImageView = {
         let imageView = UIImageView()
-        imageView.image = UIImage(systemName: "person")
+        imageView.image = UIImage(systemName: "person.circle")
         imageView.layer.borderColor = UIColor.lightGray.cgColor
         imageView.layer.borderWidth = 5
         imageView.tintColor = .gray
@@ -85,6 +86,7 @@ class RegisterViewController: UIViewController, UITextFieldDelegate {
         return imageView
     }()
     
+    var imageData = Data()
     
     
     @IBOutlet var photoImageView: UIImageView!
@@ -234,10 +236,6 @@ class RegisterViewController: UIViewController, UITextFieldDelegate {
                     print("Document successfully written!")
                 }
             }
-//
-//            //                print("Create user finished")
-//            //                print(authResult)
-//            //                print(error)
             let storyBoard = UIStoryboard(name: "Main", bundle: nil)
             let profileVC = storyBoard.instantiateViewController(withIdentifier: "profileVC")
             
@@ -247,7 +245,6 @@ class RegisterViewController: UIViewController, UITextFieldDelegate {
 }
 
 
-//MARK: - Image
 
 extension RegisterViewController: UIImagePickerControllerDelegate, UINavigationControllerDelegate {
     func presentPhotoActionSheet(){
@@ -294,7 +291,34 @@ extension RegisterViewController: UIImagePickerControllerDelegate, UINavigationC
         guard let selectedImage = info[UIImagePickerController.InfoKey.editedImage] as? UIImage else {
             return
         }
+        
         self.imageView.image = selectedImage
+        
+        let storyBoard = UIStoryboard.init(name: "Main", bundle: nil)
+        let profile = storyBoard.instantiateViewController(withIdentifier: "profileVC") as! ProfileViewController
+        profile.loadView()
+        profile.profileImage.image = selectedImage
+        
+        let storageRef = Storage.storage().reference()
+        imageData = selectedImage.jpegData(compressionQuality: 0.8)!
+
+        guard let uid = Auth.auth().currentUser?.uid else{
+            return
+        }
+        
+        guard imageData != nil else{
+            return
+        }
+        
+        let path = "images/\(uid).jpg"
+        let fileRef = storageRef.child(path)
+
+        let uploadTask = fileRef.putData(imageData, metadata: nil) { metadate, error in
+            if error == nil && metadate != nil{
+//                let db = Firestore.firestore()
+//                db.collection("Users").document(uid).setData(["url": path])
+            }
+        }
     }
     
     func imagePickerControllerDidCancel(_ picker: UIImagePickerController){

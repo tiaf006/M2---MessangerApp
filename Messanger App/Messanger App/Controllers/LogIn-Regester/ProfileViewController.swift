@@ -6,6 +6,35 @@
 //
 
 import UIKit
+
+import Firebase
+import FirebaseAuth
+import FirebaseDatabase
+
+class ProfileViewController: UIViewController {
+
+    @IBOutlet weak var profileImage: UIImageView!
+    @IBOutlet weak var logOutButton: UIButton!
+    let photo = RegisterViewController()
+    var photoData = Data()
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        photoData = photo.imageData
+        profileImage.image = UIImage(data: photoData)
+        profileImage.tintColor = .gray
+        profileImage.layer.cornerRadius = 70
+        profileImage.contentMode = .scaleAspectFit
+    }
+
+    
+    @IBAction func logOutAction(_ sender: Any) {
+        try! Auth.auth().signOut()
+        if let storyboard = self.storyboard {
+            let logInView = LoginViewController()
+            self.navigationController?.popToRootViewController(animated: true)
+            }
+        }
+=======
 import FirebaseAuth
 
 class ProfileViewController: UIViewController {
@@ -81,6 +110,7 @@ extension ProfileViewController: UITableViewDelegate, UITableViewDataSource {
         actionSheet.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: nil))
         present(actionSheet, animated: true)
     }
+
     
 }
 
