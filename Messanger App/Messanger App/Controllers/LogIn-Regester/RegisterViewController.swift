@@ -117,6 +117,8 @@ class RegisterViewController: UIViewController, UITextFieldDelegate {
     
     @objc func layOuts(){
         navigationItem.title = "Register"
+//        scrollView.isScrollEnabled = false
+//        scrollView.isUserInteractionEnabled = true
         scrollView.translatesAutoresizingMaskIntoConstraints = false
         scrollView.topAnchor.constraint(equalTo: view.topAnchor,constant: 16).isActive = true
         scrollView.bottomAnchor.constraint(equalTo: view.bottomAnchor,constant: -16).isActive = true
@@ -170,28 +172,56 @@ class RegisterViewController: UIViewController, UITextFieldDelegate {
     }
     
     @objc func signUp() {
-        guard emailField.isEmail(),
-              let email = emailField.text,
-              let password = passwordField.text,
-              password.count > 3 else {
-            print("email or password is invalid")
+        guard
+              let email = emailField.text, !email.isEmpty,
+              let password = passwordField.text, !password.isEmpty,
+              let firstName = firstNameField.text, !firstName.isEmpty,
+              let lastName = lastNameField.text, !lastName.isEmpty
+        else {
+            let alertController = UIAlertController(title: "Error", message: "Please fill all the information", preferredStyle: .alert)
+            let okAction = UIAlertAction(title: "Ok", style: .cancel)
+            alertController.addAction(okAction)
+            self.present(alertController, animated: true)
+            //            print("email or password is invalid")
             return
         }
+        if !emailField.isEmail(){
+            let alertController = UIAlertController(title: "Error", message: "Please enter correct email", preferredStyle: .alert)
+            let okAction = UIAlertAction(title: "Ok", style: .cancel)
+            alertController.addAction(okAction)
+            self.present(alertController, animated: true)
+            return
+        }
+        if password.count < 6 {
+            let alertController = UIAlertController(title: "Error", message: "The password must be 6 characters or more", preferredStyle: .alert)
+            let okAction = UIAlertAction(title: "Ok", style: .cancel)
+            alertController.addAction(okAction)
+            self.present(alertController, animated: true)
+            return
+        }
+        
         Auth.auth().createUser(withEmail: email, password: password) { authResult, error in
-            print("Create user finished")
-            print(authResult)
-            print(error)
-            
-            let storyBoard = UIStoryboard(name: "Main", bundle: nil)
-            let profileVC = storyBoard.instantiateViewController(withIdentifier: "profileVC")
-            
-            self.navigationController?.pushViewController(profileVC, animated: true)
-            
+            if let error = error{
+                let alertController = UIAlertController(title: "Error", message: "\(error.localizedDescription)", preferredStyle: .alert)
+                let okAction = UIAlertAction(title: "Ok", style: .cancel)
+                alertController.addAction(okAction)
+                self.present(alertController, animated: true)
+            }else{
+//                print("Create user finished")
+//                print(authResult)
+//                print(error)
+                let storyBoard = UIStoryboard(name: "Main", bundle: nil)
+                let profileVC = storyBoard.instantiateViewController(withIdentifier: "profileVC")
+                
+                self.navigationController?.pushViewController(profileVC, animated: true)
+            }
            
         }
     }
     
 }
+
+
 extension RegisterViewController: UIImagePickerControllerDelegate, UINavigationControllerDelegate {
     func presentPhotoActionSheet(){
         let actionSheet = UIAlertController(title: "Profile Picture", message: "How would you like to select a picture?", preferredStyle: .actionSheet)
