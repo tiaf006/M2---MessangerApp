@@ -7,7 +7,7 @@
 
 import UIKit
 import FirebaseCore
-import GoogleSignIn
+//import GoogleSignIn
 
 @main
 class AppDelegate: UIResponder, UIApplicationDelegate {

@@ -24,3 +24,14 @@ class ProfileViewController: UIViewController {
 //    }()
 
 }
+extension UIImageView {
+    func Rouned(){
+        self.heightAnchor.constraint(equalToConstant: 150).isActive = true
+        self.widthAnchor.constraint(equalToConstant: 150).isActive = true
+        self.layer.masksToBounds = false
+        self.frame(forAlignmentRect: CGRectMake(0, 0, 150, 150))
+        self.contentMode = .scaleAspectFill
+        self.layer.cornerRadius = 150.0/2.0
+        self.clipsToBounds = true
+    }
+}
