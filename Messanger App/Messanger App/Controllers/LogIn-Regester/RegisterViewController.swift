@@ -7,6 +7,8 @@
 
 import UIKit
 import FirebaseAuth
+import FirebaseDatabase
+import Firebase
 
 class RegisterViewController: UIViewController, UITextFieldDelegate {
     private let scrollView: UIScrollView = {
@@ -76,18 +78,18 @@ class RegisterViewController: UIViewController, UITextFieldDelegate {
         imageView.frame(forAlignmentRect: CGRectMake(0,0,100,100))
         imageView.layer.cornerRadius = imageView.frame.width/2.0
         imageView.clipsToBounds = true
-       // imageView.contentMode = .scaleAspectFit
+        // imageView.contentMode = .scaleAspectFit
         imageView.contentMode = .scaleAspectFit
         
         return imageView
     }()
-   
+    
     
     
     override func viewDidLoad() {
         super.viewDidLoad()
         print("wwwwwww")
-       view.backgroundColor = .white
+        view.backgroundColor = .white
         addSubViews()
         layOuts()
         
@@ -115,74 +117,74 @@ class RegisterViewController: UIViewController, UITextFieldDelegate {
         imageView.addGestureRecognizer(gesture)
     }
     
-   @objc private func didTapChangeProfilePic() {
-       presentPhotoActionSheet()
-   }
+    @objc private func didTapChangeProfilePic() {
+        presentPhotoActionSheet()
+    }
     
     @objc func layOuts(){
         navigationItem.title = "Register"
         scrollView.isScrollEnabled = true
-                scrollView.translatesAutoresizingMaskIntoConstraints = false
-               
-                scrollView.topAnchor.constraint(equalTo: view.topAnchor,constant: 0).isActive = true
-                scrollView.bottomAnchor.constraint(equalTo: view.bottomAnchor,constant: -0).isActive = true
-                scrollView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 0).isActive = true
-                scrollView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -0).isActive = true
-                
-                imageView.translatesAutoresizingMaskIntoConstraints = false
-                imageView.topAnchor.constraint(equalTo:view.topAnchor , constant:120).isActive = true
-                imageView.centerXAnchor.constraint(equalTo: scrollView.centerXAnchor).isActive = true
-                //imageView.heightAnchor.constraint(equalToConstant: 100).isActive = true
-                //imageView.widthAnchor.constraint(equalToConstant: 100).isActive = true
-                imageView.backgroundColor = .clear
-                imageView.Rouned()
-                //imageView.layer.masksToBounds = false
-                //imageView.frame(forAlignmentRect: CGRectMake(0, 0, 100, 100))
-               // imageView.contentMode = .scaleAspectFill
-               // imageView.layer.cornerRadius = 100.0/2.0
-                //imageView.clipsToBounds = true
-                
-                firstNameField.translatesAutoresizingMaskIntoConstraints = false
-                firstNameField.topAnchor.constraint(equalTo: imageView.bottomAnchor, constant: 44).isActive = true
-                firstNameField.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 20).isActive = true
-                firstNameField.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -20).isActive = true
-                firstNameField.heightAnchor.constraint(equalToConstant: 34).isActive = true
-                firstNameField.borderStyle = .roundedRect
-
-                lastNameField.translatesAutoresizingMaskIntoConstraints = false
-                lastNameField.topAnchor.constraint(equalTo: firstNameField.bottomAnchor, constant: 20).isActive = true
-                lastNameField.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 20).isActive = true
-                lastNameField.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -20).isActive = true
-                lastNameField.heightAnchor.constraint(equalToConstant: 34).isActive = true
-                lastNameField.borderStyle = .roundedRect
-                
-                emailField.translatesAutoresizingMaskIntoConstraints = false
-                emailField.topAnchor.constraint(equalTo: lastNameField.bottomAnchor, constant: 20).isActive = true
-                emailField.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 20).isActive = true
-                emailField.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -20).isActive = true
-                emailField.heightAnchor.constraint(equalToConstant: 34).isActive = true
-                emailField.borderStyle = .roundedRect
-                
-                passwordField.translatesAutoresizingMaskIntoConstraints = false
-                passwordField.topAnchor.constraint(equalTo: emailField.bottomAnchor, constant: 20).isActive = true
-                passwordField.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 20).isActive = true
-                passwordField.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -20).isActive = true
-                passwordField.heightAnchor.constraint(equalToConstant: 34).isActive = true
-                passwordField.borderStyle = .roundedRect
-                
-                registerButton.translatesAutoresizingMaskIntoConstraints = false
-                registerButton.topAnchor.constraint(equalTo: passwordField.bottomAnchor, constant: 43).isActive = true
-                registerButton.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 20).isActive = true
-                registerButton.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -20).isActive = true
-                registerButton.heightAnchor.constraint(equalToConstant: 44).isActive = true
+        scrollView.translatesAutoresizingMaskIntoConstraints = false
+        
+        scrollView.topAnchor.constraint(equalTo: view.topAnchor,constant: 0).isActive = true
+        scrollView.bottomAnchor.constraint(equalTo: view.bottomAnchor,constant: -0).isActive = true
+        scrollView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 0).isActive = true
+        scrollView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -0).isActive = true
+        
+        imageView.translatesAutoresizingMaskIntoConstraints = false
+        imageView.topAnchor.constraint(equalTo:view.topAnchor , constant:120).isActive = true
+        imageView.centerXAnchor.constraint(equalTo: scrollView.centerXAnchor).isActive = true
+        //imageView.heightAnchor.constraint(equalToConstant: 100).isActive = true
+        //imageView.widthAnchor.constraint(equalToConstant: 100).isActive = true
+        imageView.backgroundColor = .clear
+        imageView.Rouned()
+        //imageView.layer.masksToBounds = false
+        //imageView.frame(forAlignmentRect: CGRectMake(0, 0, 100, 100))
+        // imageView.contentMode = .scaleAspectFill
+        // imageView.layer.cornerRadius = 100.0/2.0
+        //imageView.clipsToBounds = true
+        
+        firstNameField.translatesAutoresizingMaskIntoConstraints = false
+        firstNameField.topAnchor.constraint(equalTo: imageView.bottomAnchor, constant: 44).isActive = true
+        firstNameField.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 20).isActive = true
+        firstNameField.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -20).isActive = true
+        firstNameField.heightAnchor.constraint(equalToConstant: 34).isActive = true
+        firstNameField.borderStyle = .roundedRect
+        
+        lastNameField.translatesAutoresizingMaskIntoConstraints = false
+        lastNameField.topAnchor.constraint(equalTo: firstNameField.bottomAnchor, constant: 20).isActive = true
+        lastNameField.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 20).isActive = true
+        lastNameField.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -20).isActive = true
+        lastNameField.heightAnchor.constraint(equalToConstant: 34).isActive = true
+        lastNameField.borderStyle = .roundedRect
+        
+        emailField.translatesAutoresizingMaskIntoConstraints = false
+        emailField.topAnchor.constraint(equalTo: lastNameField.bottomAnchor, constant: 20).isActive = true
+        emailField.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 20).isActive = true
+        emailField.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -20).isActive = true
+        emailField.heightAnchor.constraint(equalToConstant: 34).isActive = true
+        emailField.borderStyle = .roundedRect
+        
+        passwordField.translatesAutoresizingMaskIntoConstraints = false
+        passwordField.topAnchor.constraint(equalTo: emailField.bottomAnchor, constant: 20).isActive = true
+        passwordField.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 20).isActive = true
+        passwordField.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -20).isActive = true
+        passwordField.heightAnchor.constraint(equalToConstant: 34).isActive = true
+        passwordField.borderStyle = .roundedRect
+        
+        registerButton.translatesAutoresizingMaskIntoConstraints = false
+        registerButton.topAnchor.constraint(equalTo: passwordField.bottomAnchor, constant: 43).isActive = true
+        registerButton.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 20).isActive = true
+        registerButton.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -20).isActive = true
+        registerButton.heightAnchor.constraint(equalToConstant: 44).isActive = true
     }
     
     @objc func signUp() {
         guard
-              let email = emailField.text, !email.isEmpty,
-              let password = passwordField.text, !password.isEmpty,
-              let firstName = firstNameField.text, !firstName.isEmpty,
-              let lastName = lastNameField.text, !lastName.isEmpty
+            let email = emailField.text, !email.isEmpty,
+            let password = passwordField.text, !password.isEmpty,
+            let firstName = firstNameField.text, !firstName.isEmpty,
+            let lastName = lastNameField.text, !lastName.isEmpty
         else {
             let alertController = UIAlertController(title: "Error", message: "Please fill all the information", preferredStyle: .alert)
             let okAction = UIAlertAction(title: "Ok", style: .cancel)
@@ -206,25 +208,37 @@ class RegisterViewController: UIViewController, UITextFieldDelegate {
             return
         }
         
-        Auth.auth().createUser(withEmail: email, password: password) { authResult, error in
-            if let error = error{
-                let alertController = UIAlertController(title: "Error", message: "\(error.localizedDescription)", preferredStyle: .alert)
+        Auth.auth().createUser(withEmail: email, password: password, completion: {(authResult, error: Error?) in
+            if error != nil {
+                let alertController = UIAlertController(title: "Error", message: "\(error!.localizedDescription)", preferredStyle: .alert)
                 let okAction = UIAlertAction(title: "Ok", style: .cancel)
                 alertController.addAction(okAction)
                 self.present(alertController, animated: true)
-            }else{
-//                print("Create user finished")
-//                print(authResult)
-//                print(error)
-                let storyBoard = UIStoryboard(name: "Main", bundle: nil)
-                let profileVC = storyBoard.instantiateViewController(withIdentifier: "profileVC")
-                
-                self.navigationController?.pushViewController(profileVC, animated: true)
+                return
             }
-           
-        }
+            let uid = authResult!.user.uid
+            let db = Firestore.firestore()
+            db.collection("Users").document(uid).setData([
+                "First name": self.firstNameField.text!,
+                "Last name": self.lastNameField.text!,
+                "Email": self.emailField.text!
+            ]) { err in
+                if let err = err {
+                    print("Error writing document: \(err)")
+                } else {
+                    print("Document successfully written!")
+                }
+            }
+//
+//            //                print("Create user finished")
+//            //                print(authResult)
+//            //                print(error)
+            let storyBoard = UIStoryboard(name: "Main", bundle: nil)
+            let profileVC = storyBoard.instantiateViewController(withIdentifier: "profileVC")
+            
+            self.navigationController?.pushViewController(profileVC, animated: true)
+        })
     }
-    
 }
 
 
