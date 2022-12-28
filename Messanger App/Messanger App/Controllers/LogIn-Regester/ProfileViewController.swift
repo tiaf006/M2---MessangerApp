@@ -6,23 +6,34 @@
 //
 
 import UIKit
+import Firebase
+import FirebaseAuth
+import FirebaseDatabase
 
 class ProfileViewController: UIViewController {
 
+    @IBOutlet weak var profileImage: UIImageView!
+    @IBOutlet weak var logOutButton: UIButton!
+    let photo = RegisterViewController()
+    var photoData = Data()
     override func viewDidLoad() {
         super.viewDidLoad()
-        view.backgroundColor = .red
-        // Do any additional setup after loading the view.
+        photoData = photo.imageData
+        profileImage.image = UIImage(data: photoData)
+        profileImage.tintColor = .gray
+        profileImage.layer.cornerRadius = 70
+        profileImage.contentMode = .scaleAspectFit
     }
-//    private let imageView: UIImageView = {
-//        let imageView = UIImageView()
-//        imageView.image = UIImage(systemName: "person")
-//        imageView.tintColor = .gray
-//        imageView.layer.cornerRadius = 70
-//        imageView.contentMode = .scaleAspectFit
-//        return imageView
-//    }()
 
+    
+    @IBAction func logOutAction(_ sender: Any) {
+        try! Auth.auth().signOut()
+        if let storyboard = self.storyboard {
+            let logInView = LoginViewController()
+            self.navigationController?.popToRootViewController(animated: true)
+            }
+        }
+    
 }
 extension UIImageView {
     func Rouned(){

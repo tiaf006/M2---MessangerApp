@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		0349414C295B93CB00824901 /* GoogleSignIn in Frameworks */ = {isa = PBXBuildFile; productRef = 0349414B295B93CB00824901 /* GoogleSignIn */; };
 		0349414E295B93CB00824901 /* GoogleSignInSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 0349414D295B93CB00824901 /* GoogleSignInSwift */; };
+		03F136D2295C9B3F00A301EA /* FirebaseManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03F136D1295C9B3F00A301EA /* FirebaseManager.swift */; };
 		0BEA091B295AEA0400447860 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BEA091A295AEA0400447860 /* ProfileViewController.swift */; };
 		4F1AC3C22959E232004ED825 /* Email - Password.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F1AC3C12959E232004ED825 /* Email - Password.swift */; };
 		B11EE795295B01ED00522CD9 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = B11EE794295B01ED00522CD9 /* GoogleService-Info.plist */; };
@@ -52,6 +53,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		03F136D1295C9B3F00A301EA /* FirebaseManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebaseManager.swift; sourceTree = "<group>"; };
 		0BEA091A295AEA0400447860 /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
 		4F1AC3C12959E232004ED825 /* Email - Password.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Email - Password.swift"; sourceTree = "<group>"; };
 		B11EE794295B01ED00522CD9 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
@@ -151,6 +153,7 @@
 				4F1AC3C12959E232004ED825 /* Email - Password.swift */,
 				B18C37902959D94100132E73 /* RegisterViewController.swift */,
 				0BEA091A295AEA0400447860 /* ProfileViewController.swift */,
+				03F136D1295C9B3F00A301EA /* FirebaseManager.swift */,
 			);
 			path = "LogIn-Regester";
 			sourceTree = "<group>";
@@ -295,6 +298,7 @@
 			files = (
 				B1BE37252959A89F00D36E64 /* ViewController.swift in Sources */,
 				B1BE37212959A89F00D36E64 /* AppDelegate.swift in Sources */,
+				03F136D2295C9B3F00A301EA /* FirebaseManager.swift in Sources */,
 				B1BE37232959A89F00D36E64 /* SceneDelegate.swift in Sources */,
 				B11EE7CE295B0D1A00522CD9 /* UserStateViewController.swift in Sources */,
 				B18C37912959D94100132E73 /* RegisterViewController.swift in Sources */,
