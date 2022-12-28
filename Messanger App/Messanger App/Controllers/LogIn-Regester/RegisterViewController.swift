@@ -15,6 +15,12 @@ class RegisterViewController: UIViewController, UITextFieldDelegate {
         return scrollView
     }()
     
+    private let contentView: UIView = {
+        let contentView = UIView()
+        contentView.clipsToBounds = true
+        return contentView
+    }()
+    
     private let emailField: UITextField = {
         let field = UITextField()
         field.placeholder = "Email Address..."
@@ -86,33 +92,34 @@ class RegisterViewController: UIViewController, UITextFieldDelegate {
         return imageView
     }()
    
-    
-    
+   
     override func viewDidLoad() {
         super.viewDidLoad()
         print("wwwwwww")
        view.backgroundColor = .white
         addSubViews()
         layOuts()
-        
+
     }
+
+    
     func addSubViews(){
         emailField.delegate = self
         passwordField.delegate = self
         
         // add subviews
         view.addSubview(scrollView)
-        scrollView.addSubview(imageView)
-        scrollView.addSubview(firstNameField)
-        scrollView.addSubview(lastNameField)
-        scrollView.addSubview(emailField)
-        scrollView.addSubview(passwordField)
-        scrollView.addSubview(registerButton)
+        scrollView.addSubview(contentView)
+        contentView.addSubview(imageView)
+        contentView.addSubview(firstNameField)
+        contentView.addSubview(lastNameField)
+        contentView.addSubview(emailField)
+        contentView.addSubview(passwordField)
+        contentView.addSubview(registerButton)
         
         imageView.isUserInteractionEnabled = true
         scrollView.isUserInteractionEnabled = true
         let gesture = UITapGestureRecognizer(target: self, action: #selector(didTapChangeProfilePic))
-        
         gesture.numberOfTouchesRequired = 1
         gesture.numberOfTapsRequired = 1
         
@@ -123,62 +130,66 @@ class RegisterViewController: UIViewController, UITextFieldDelegate {
        presentPhotoActionSheet()
    }
     
+    
     @objc func layOuts(){
         navigationItem.title = "Register"
+        
+        scrollView.translatesAutoresizingMaskIntoConstraints = false
+        scrollView.topAnchor.constraint(equalTo: view.topAnchor,constant: 0).isActive = true
+        scrollView.bottomAnchor.constraint(equalTo: view.bottomAnchor,constant: -0).isActive = true
+        scrollView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 0).isActive = true
+        scrollView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -0).isActive = true
         scrollView.isScrollEnabled = true
-                scrollView.translatesAutoresizingMaskIntoConstraints = false
-               
-                scrollView.topAnchor.constraint(equalTo: view.topAnchor,constant: 0).isActive = true
-                scrollView.bottomAnchor.constraint(equalTo: view.bottomAnchor,constant: -0).isActive = true
-                scrollView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 0).isActive = true
-                scrollView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -0).isActive = true
-                
-                imageView.translatesAutoresizingMaskIntoConstraints = false
-                imageView.topAnchor.constraint(equalTo:view.topAnchor , constant:120).isActive = true
-                imageView.centerXAnchor.constraint(equalTo: scrollView.centerXAnchor).isActive = true
-                //imageView.heightAnchor.constraint(equalToConstant: 100).isActive = true
-                //imageView.widthAnchor.constraint(equalToConstant: 100).isActive = true
-                imageView.backgroundColor = .clear
-                imageView.Rouned()
-                //imageView.layer.masksToBounds = false
-                //imageView.frame(forAlignmentRect: CGRectMake(0, 0, 100, 100))
-               // imageView.contentMode = .scaleAspectFill
-               // imageView.layer.cornerRadius = 100.0/2.0
-                //imageView.clipsToBounds = true
-                
-                firstNameField.translatesAutoresizingMaskIntoConstraints = false
-                firstNameField.topAnchor.constraint(equalTo: imageView.bottomAnchor, constant: 44).isActive = true
-                firstNameField.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 20).isActive = true
-                firstNameField.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -20).isActive = true
-                firstNameField.heightAnchor.constraint(equalToConstant: 34).isActive = true
-                firstNameField.borderStyle = .roundedRect
-
-                lastNameField.translatesAutoresizingMaskIntoConstraints = false
-                lastNameField.topAnchor.constraint(equalTo: firstNameField.bottomAnchor, constant: 20).isActive = true
-                lastNameField.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 20).isActive = true
-                lastNameField.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -20).isActive = true
-                lastNameField.heightAnchor.constraint(equalToConstant: 34).isActive = true
-                lastNameField.borderStyle = .roundedRect
-                
-                emailField.translatesAutoresizingMaskIntoConstraints = false
-                emailField.topAnchor.constraint(equalTo: lastNameField.bottomAnchor, constant: 20).isActive = true
-                emailField.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 20).isActive = true
-                emailField.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -20).isActive = true
-                emailField.heightAnchor.constraint(equalToConstant: 34).isActive = true
-                emailField.borderStyle = .roundedRect
-                
-                passwordField.translatesAutoresizingMaskIntoConstraints = false
-                passwordField.topAnchor.constraint(equalTo: emailField.bottomAnchor, constant: 20).isActive = true
-                passwordField.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 20).isActive = true
-                passwordField.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -20).isActive = true
-                passwordField.heightAnchor.constraint(equalToConstant: 34).isActive = true
-                passwordField.borderStyle = .roundedRect
-                
-                registerButton.translatesAutoresizingMaskIntoConstraints = false
-                registerButton.topAnchor.constraint(equalTo: passwordField.bottomAnchor, constant: 43).isActive = true
-                registerButton.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 20).isActive = true
-                registerButton.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -20).isActive = true
-                registerButton.heightAnchor.constraint(equalToConstant: 44).isActive = true
+        scrollView.contentSize = CGSize(width: view.frame.width, height: 600)
+        scrollView.frame = view.frame
+        
+        contentView.centerYAnchor.constraint(equalTo: view.centerYAnchor).isActive = true
+        contentView.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
+        contentView.frame.size.height = view.frame.size.height + 200
+        contentView.frame.size.width = view.frame.size.width
+        contentView.sizeToFit()
+        contentView.widthAnchor.constraint(greaterThanOrEqualTo:  scrollView.widthAnchor).isActive = true
+        contentView.heightAnchor.constraint(greaterThanOrEqualTo:  scrollView.heightAnchor).isActive = true
+       
+        imageView.translatesAutoresizingMaskIntoConstraints = false
+        imageView.topAnchor.constraint(equalTo:contentView.topAnchor , constant:80).isActive = true
+        imageView.centerXAnchor.constraint(equalTo: contentView.centerXAnchor).isActive = true
+        imageView.backgroundColor = .clear
+        imageView.Rouned()
+        
+        firstNameField.translatesAutoresizingMaskIntoConstraints = false
+        firstNameField.topAnchor.constraint(equalTo: imageView.bottomAnchor, constant: 44).isActive = true
+        firstNameField.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 20).isActive = true
+        firstNameField.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -20).isActive = true
+        firstNameField.heightAnchor.constraint(equalToConstant: 34).isActive = true
+        firstNameField.borderStyle = .roundedRect
+        
+        lastNameField.translatesAutoresizingMaskIntoConstraints = false
+        lastNameField.topAnchor.constraint(equalTo: firstNameField.bottomAnchor, constant: 20).isActive = true
+        lastNameField.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 20).isActive = true
+        lastNameField.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -20).isActive = true
+        lastNameField.heightAnchor.constraint(equalToConstant: 34).isActive = true
+        lastNameField.borderStyle = .roundedRect
+        
+        emailField.translatesAutoresizingMaskIntoConstraints = false
+        emailField.topAnchor.constraint(equalTo: lastNameField.bottomAnchor, constant: 20).isActive = true
+        emailField.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 20).isActive = true
+        emailField.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -20).isActive = true
+        emailField.heightAnchor.constraint(equalToConstant: 34).isActive = true
+        emailField.borderStyle = .roundedRect
+        
+        passwordField.translatesAutoresizingMaskIntoConstraints = false
+        passwordField.topAnchor.constraint(equalTo: emailField.bottomAnchor, constant: 20).isActive = true
+        passwordField.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 20).isActive = true
+        passwordField.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -20).isActive = true
+        passwordField.heightAnchor.constraint(equalToConstant: 34).isActive = true
+        passwordField.borderStyle = .roundedRect
+        
+        registerButton.translatesAutoresizingMaskIntoConstraints = false
+        registerButton.topAnchor.constraint(equalTo: passwordField.bottomAnchor, constant: 43).isActive = true
+        registerButton.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 20).isActive = true
+        registerButton.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -20).isActive = true
+        registerButton.heightAnchor.constraint(equalToConstant: 44).isActive = true
     }
     
     @objc func signUp() {
