@@ -7,6 +7,7 @@
 
 import UIKit
 import FirebaseAuth
+import GoogleSignIn
 
 class LoginViewController: UIViewController {
     // if not signed in, show the login screen, allow the user to sign up
@@ -53,6 +54,7 @@ class LoginViewController: UIViewController {
         button.layer.cornerRadius = 12
         button.layer.masksToBounds = true
         button.titleLabel?.font = .systemFont(ofSize: 20, weight: .bold)
+//        button.addTarget(self, action: #selector(google), for: .touchUpInside)
         return button
     }()
     private let scrollView: UIScrollView = {
@@ -103,9 +105,6 @@ class LoginViewController: UIViewController {
         field.isSecureTextEntry = true
         return field
     }()
-    
-
-
 
     let signButton: UIButton = {
         let button = UIButton()
@@ -189,22 +188,40 @@ class LoginViewController: UIViewController {
             }
 
     @objc func signin() {
-        guard emailField.isEmail(),
-              let email = emailField.text,
-              let password = passwordField.text,
-              password.count > 3 else {
-            print("email or password is invalid")
+        guard
+              let email = emailField.text, !email.isEmpty,
+              let password = passwordField.text, !password.isEmpty else {
+            let alertController = UIAlertController(title: "Error", message: "Please fill all the information", preferredStyle: .alert)
+            let okAction = UIAlertAction(title: "Ok", style: .cancel)
+            alertController.addAction(okAction)
+            self.present(alertController, animated: true)
+            //            print("email or password is invalid")
             return
         }
+            if !emailField.isEmail() {
+                let alertController = UIAlertController(title: "Error", message: "Please enter correct email", preferredStyle: .alert)
+                let okAction = UIAlertAction(title: "Ok", style: .cancel)
+                alertController.addAction(okAction)
+                self.present(alertController, animated: true)
+                return
+            }
+        
         Auth.auth().signIn(withEmail: email, password: password) { authResult, error in
-            print("sign in user finished")
-            print(authResult)
-            print(error)
-            
-            let storyBoard = UIStoryboard(name: "Main", bundle: nil)
-                    let profileVC = storyBoard.instantiateViewController(withIdentifier: "profileVC")
-                    
-                    self.navigationController?.pushViewController(profileVC, animated: true)
+            if let error = error{
+                let alertController = UIAlertController(title: "Error", message: "\(error.localizedDescription)", preferredStyle: .alert)
+                let okAction = UIAlertAction(title: "Ok", style: .cancel)
+                alertController.addAction(okAction)
+                self.present(alertController, animated: true)
+            }else{
+                //            print("sign in user finished")
+                //            print(authResult)
+                //            print(error)
+                
+                let storyBoard = UIStoryboard(name: "Main", bundle: nil)
+                let profileVC = storyBoard.instantiateViewController(withIdentifier: "profileVC")
+                
+                self.navigationController?.pushViewController(profileVC, animated: true)
+            }
         }
     }
     
