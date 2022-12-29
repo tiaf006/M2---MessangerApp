@@ -50,6 +50,7 @@
 		B1BE37282959A89F00D36E64 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B1BE37262959A89F00D36E64 /* Main.storyboard */; };
 		B1BE372A2959A8A100D36E64 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B1BE37292959A8A100D36E64 /* Assets.xcassets */; };
 		B1BE372D2959A8A100D36E64 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B1BE372B2959A8A100D36E64 /* LaunchScreen.storyboard */; };
+		B1ECEB78295DBCFC00B8177D /* MessageKit in Frameworks */ = {isa = PBXBuildFile; productRef = B1ECEB77295DBCFC00B8177D /* MessageKit */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -85,6 +86,7 @@
 				03D3BFCA295DAE3300C72D0E /* FirebaseAnalytics in Frameworks */,
 				03D3BFD6295DAE3300C72D0E /* FirebaseAuth in Frameworks */,
 				03D3BFE0295DAE3300C72D0E /* FirebaseDynamicLinks in Frameworks */,
+				B1ECEB78295DBCFC00B8177D /* MessageKit in Frameworks */,
 				03D3BFDA295DAE3300C72D0E /* FirebaseCrashlytics in Frameworks */,
 				03D3BFF2295DAE3300C72D0E /* FirebaseMLModelDownloader in Frameworks */,
 				03D3BFDE295DAE3300C72D0E /* FirebaseDatabaseSwift in Frameworks */,
@@ -235,6 +237,7 @@
 				03D3BFF9295DAE3300C72D0E /* FirebaseRemoteConfigSwift */,
 				03D3BFFB295DAE3300C72D0E /* FirebaseStorage */,
 				03D3BFFD295DAE3300C72D0E /* FirebaseStorageCombine-Community */,
+				B1ECEB77295DBCFC00B8177D /* MessageKit */,
 			);
 			productName = "Messanger App";
 			productReference = B1BE371D2959A89F00D36E64 /* Messanger App.app */;
@@ -267,6 +270,7 @@
 			packageReferences = (
 				0349414A295B93CB00824901 /* XCRemoteSwiftPackageReference "GoogleSignIn-iOS" */,
 				03D3BFC8295DAE3300C72D0E /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */,
+				B1ECEB76295DBCFC00B8177D /* XCRemoteSwiftPackageReference "MessageKit" */,
 			);
 			productRefGroup = B1BE371E2959A89F00D36E64 /* Products */;
 			projectDirPath = "";
@@ -547,6 +551,14 @@
 				kind = branch;
 			};
 		};
+		B1ECEB76295DBCFC00B8177D /* XCRemoteSwiftPackageReference "MessageKit" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/MessageKit/MessageKit";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 4.0.0;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -694,6 +706,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 03D3BFC8295DAE3300C72D0E /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
 			productName = "FirebaseStorageCombine-Community";
+		};
+		B1ECEB77295DBCFC00B8177D /* MessageKit */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = B1ECEB76295DBCFC00B8177D /* XCRemoteSwiftPackageReference "MessageKit" */;
+			productName = MessageKit;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};
