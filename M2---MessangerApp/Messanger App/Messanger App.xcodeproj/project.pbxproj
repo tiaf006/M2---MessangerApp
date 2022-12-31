@@ -121,15 +121,6 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		03A4E71A29608A5900BDD3C7 /* New Group */ = {
-			isa = PBXGroup;
-			children = (
-				03A4E718296089E600BDD3C7 /* Message.swift */,
-				03A4E7162960878C00BDD3C7 /* Users.swift */,
-			);
-			path = "New Group";
-			sourceTree = "<group>";
-		};
 		B10F95582959AD6200F6F20E /* Resources */ = {
 			isa = PBXGroup;
 			children = (
@@ -142,6 +133,8 @@
 		B10F95592959B07500F6F20E /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				03A4E718296089E600BDD3C7 /* Message.swift */,
+				03A4E7162960878C00BDD3C7 /* Users.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -160,9 +153,10 @@
 			children = (
 				B10F955F2959B10200F6F20E /* LogIn-Regester */,
 				B1BE37242959A89F00D36E64 /* ViewController.swift */,
+				4F2F41DD2960D30D00C35ED0 /* NewMesswController.swift */,
+				4F2F41DB2960B7EE00C35ED0 /* UesrsTableViewController.swift */,
 				B18C378C2959D84300132E73 /* ConversationsViewController.swift */,
 				03A4E71429606FC400BDD3C7 /* Chats.swift */,
-				03A4E71A29608A5900BDD3C7 /* New Group */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -174,8 +168,6 @@
 				4F1AC3C12959E232004ED825 /* Email - Password.swift */,
 				B18C37902959D94100132E73 /* RegisterViewController.swift */,
 				0BEA091A295AEA0400447860 /* ProfileViewController.swift */,
-				4F2F41DD2960D30D00C35ED0 /* NewMesswController.swift */,
-				4F2F41DB2960B7EE00C35ED0 /* UesrsTableViewController.swift */,
 			);
 			path = "LogIn-Regester";
 			sourceTree = "<group>";
@@ -200,8 +192,8 @@
 			isa = PBXGroup;
 			children = (
 				B11EE794295B01ED00522CD9 /* GoogleService-Info.plist */,
-				B10F955B2959B09E00F6F20E /* Controllers */,
 				B10F955A2959B08200F6F20E /* Views */,
+				B10F955B2959B09E00F6F20E /* Controllers */,
 				B10F95592959B07500F6F20E /* Models */,
 				B10F95582959AD6200F6F20E /* Resources */,
 				B1BE37292959A8A100D36E64 /* Assets.xcassets */,

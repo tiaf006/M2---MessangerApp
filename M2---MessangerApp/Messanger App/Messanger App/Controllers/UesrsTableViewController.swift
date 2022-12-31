@@ -15,25 +15,22 @@ class UesrsTableViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        view.backgroundColor = UIColor.white
         navigationItem.leftBarButtonItem = UIBarButtonItem(title: "Logout",   style: .plain, target: self, action: #selector (handleLogout))
         let image = UIImage (systemName: "square.and.pencil")
         navigationItem.rightBarButtonItem = UIBarButtonItem(image: image,style: .plain, target: self, action: #selector (handleNewMessage))
     }
     @objc func handleNewMessage() {
         let newMessTableViewController = NewMesswController()
-        let navController = UINavigationController(rootViewController:
-                                                    newMessTableViewController)
-        present (navController, animated: true, completion: nil)
+        self.navigationController?.pushViewController(newMessTableViewController, animated: true)
     }
     
     func loadUserData() {
         
-                navigationItem.leftBarButtonItem = UIBarButtonItem(title: "Logout", style: .plain, target: self, action: #selector (handleLogout))
+        navigationItem.leftBarButtonItem = UIBarButtonItem(title: "Logout", style: .plain, target: self, action: #selector (handleLogout))
     }
     @objc func handleLogout() {
     let loginController = LoginViewController()
-        present(loginController, animated: true, completion:
-    nil)
+    self.navigationController?.pushViewController(loginController, animated: true)
     }
 }

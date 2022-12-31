@@ -8,8 +8,8 @@
 import UIKit
 
 class Users : NSObject{
-    var id : String?
+    //var id : String?
     var name : String?
     var email : String?
-    var imageProfile : String?
+   // var imageProfile : String?
 }
