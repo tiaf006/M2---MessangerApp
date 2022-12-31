@@ -20,11 +20,11 @@ class RegisterViewController: UIViewController, UITextFieldDelegate {
     }()
     
     private let contentView: UIView = {
-            let contentView = UIView()
-            contentView.clipsToBounds = true
-            return contentView
+        let contentView = UIView()
+        contentView.clipsToBounds = true
+        return contentView
     }()
-
+    
     private let emailField: UITextField = {
         let field = UITextField()
         field.placeholder = "Email Address..."
@@ -158,7 +158,7 @@ class RegisterViewController: UIViewController, UITextFieldDelegate {
         contentView.sizeToFit()
         contentView.widthAnchor.constraint(greaterThanOrEqualTo:  scrollView.widthAnchor).isActive = true
         contentView.heightAnchor.constraint(greaterThanOrEqualTo:  scrollView.heightAnchor).isActive = true
-       
+        
         imageView.translatesAutoresizingMaskIntoConstraints = false
         imageView.topAnchor.constraint(equalTo:contentView.topAnchor , constant:80).isActive = true
         imageView.centerXAnchor.constraint(equalTo: contentView.centerXAnchor).isActive = true
@@ -201,11 +201,12 @@ class RegisterViewController: UIViewController, UITextFieldDelegate {
     }
     
     @objc private func didTapChangeProfilePic() {
-            presentPhotoActionSheet()
-        }
-
+        presentPhotoActionSheet()
+    }
+    
     @objc func signUp() {
         guard
+            
             let email = emailField.text, !email.isEmpty,
             let password = passwordField.text, !password.isEmpty,
             let firstName = firstNameField.text, !firstName.isEmpty,
@@ -254,13 +255,25 @@ class RegisterViewController: UIViewController, UITextFieldDelegate {
                     print("Document successfully written!")
                 }
             }
+            let ref = Database.database().reference(fromURL: "https://messangerapp-5af6b-default-rtdb.firebaseio.com/")
+            let usersRef =  ref.child("Uesrs").child(authResult!.user.uid)
+            let values: [String: String] = ["name": "\(firstName) \(lastName)", "email": email]
+            usersRef.updateChildValues(values, withCompletionBlock: {(err, usersRef)in
+                if err != nil {
+                    print(err)
+                    return
+                }
+                    print("Save user succeddfully into Firebase db") }
+                )
             let storyBoard = UIStoryboard(name: "Main", bundle: nil)
             let profileVC = storyBoard.instantiateViewController(withIdentifier: "profileVC")
             
             self.navigationController?.pushViewController(profileVC, animated: true)
         })
+        
+        }
     }
-}
+
 
 
 //MARK: extention for the emage picker
