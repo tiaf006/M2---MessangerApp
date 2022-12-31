@@ -8,17 +8,32 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--View Controller-->
+        <!--Uesrs Table View Controller-->
         <scene sceneID="1eQ-xT-lVE">
             <objects>
-                <viewController id="Us6-vh-zMI" sceneMemberID="viewController">
+                <viewController id="Us6-vh-zMI" customClass="UesrsTableViewController" customModule="Messanger_App" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="9mT-G4-TgX">
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="B1l-IL-0c5">
+                                <rect key="frame" x="0.0" y="103" width="393" height="666"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                            </tableView>
+                        </subviews>
                         <viewLayoutGuide key="safeArea" id="zfG-IJ-iCR"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="zfG-IJ-iCR" firstAttribute="trailing" secondItem="B1l-IL-0c5" secondAttribute="trailing" id="3bE-Zz-f94"/>
+                            <constraint firstItem="zfG-IJ-iCR" firstAttribute="bottom" secondItem="B1l-IL-0c5" secondAttribute="bottom" id="HcF-Es-60y"/>
+                            <constraint firstItem="B1l-IL-0c5" firstAttribute="leading" secondItem="zfG-IJ-iCR" secondAttribute="leading" id="S6S-Nt-eM9"/>
+                            <constraint firstItem="B1l-IL-0c5" firstAttribute="top" secondItem="zfG-IJ-iCR" secondAttribute="top" id="Y8V-Tb-4kk"/>
+                        </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="KhF-1A-EZ6"/>
+                    <connections>
+                        <outlet property="UesrsTable" destination="B1l-IL-0c5" id="431-so-uz2"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ngH-H0-ULF" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>

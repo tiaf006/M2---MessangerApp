@@ -41,6 +41,8 @@
 		03D3BFFE295DAE3300C72D0E /* FirebaseStorageCombine-Community in Frameworks */ = {isa = PBXBuildFile; productRef = 03D3BFFD295DAE3300C72D0E /* FirebaseStorageCombine-Community */; };
 		0BEA091B295AEA0400447860 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BEA091A295AEA0400447860 /* ProfileViewController.swift */; };
 		4F1AC3C22959E232004ED825 /* Email - Password.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F1AC3C12959E232004ED825 /* Email - Password.swift */; };
+		4F2F41DC2960B7EE00C35ED0 /* UesrsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F2F41DB2960B7EE00C35ED0 /* UesrsTableViewController.swift */; };
+		4F2F41DE2960D30D00C35ED0 /* NewMesswController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F2F41DD2960D30D00C35ED0 /* NewMesswController.swift */; };
 		B11EE795295B01ED00522CD9 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = B11EE794295B01ED00522CD9 /* GoogleService-Info.plist */; };
 		B11EE7CE295B0D1A00522CD9 /* UserStateViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B11EE7CD295B0D1A00522CD9 /* UserStateViewController.swift */; };
 		B18C378D2959D84300132E73 /* ConversationsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B18C378C2959D84300132E73 /* ConversationsViewController.swift */; };
@@ -60,6 +62,8 @@
 		03A4E718296089E600BDD3C7 /* Message.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Message.swift; sourceTree = "<group>"; };
 		0BEA091A295AEA0400447860 /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
 		4F1AC3C12959E232004ED825 /* Email - Password.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Email - Password.swift"; sourceTree = "<group>"; };
+		4F2F41DB2960B7EE00C35ED0 /* UesrsTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UesrsTableViewController.swift; sourceTree = "<group>"; };
+		4F2F41DD2960D30D00C35ED0 /* NewMesswController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewMesswController.swift; sourceTree = "<group>"; };
 		B11EE794295B01ED00522CD9 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		B11EE7CD295B0D1A00522CD9 /* UserStateViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserStateViewController.swift; sourceTree = "<group>"; };
 		B18C378C2959D84300132E73 /* ConversationsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConversationsViewController.swift; sourceTree = "<group>"; };
@@ -168,6 +172,8 @@
 				4F1AC3C12959E232004ED825 /* Email - Password.swift */,
 				B18C37902959D94100132E73 /* RegisterViewController.swift */,
 				0BEA091A295AEA0400447860 /* ProfileViewController.swift */,
+				4F2F41DD2960D30D00C35ED0 /* NewMesswController.swift */,
+				4F2F41DB2960B7EE00C35ED0 /* UesrsTableViewController.swift */,
 			);
 			path = "LogIn-Regester";
 			sourceTree = "<group>";
@@ -312,6 +318,7 @@
 			files = (
 				B1BE37252959A89F00D36E64 /* ViewController.swift in Sources */,
 				B1BE37212959A89F00D36E64 /* AppDelegate.swift in Sources */,
+				4F2F41DC2960B7EE00C35ED0 /* UesrsTableViewController.swift in Sources */,
 				03A4E71529606FC400BDD3C7 /* Chats.swift in Sources */,
 				B1BE37232959A89F00D36E64 /* SceneDelegate.swift in Sources */,
 				B11EE7CE295B0D1A00522CD9 /* UserStateViewController.swift in Sources */,
@@ -319,6 +326,7 @@
 				B18C378F2959D8BF00132E73 /* LoginViewController.swift in Sources */,
 				B18C378D2959D84300132E73 /* ConversationsViewController.swift in Sources */,
 				0BEA091B295AEA0400447860 /* ProfileViewController.swift in Sources */,
+				4F2F41DE2960D30D00C35ED0 /* NewMesswController.swift in Sources */,
 				03A4E719296089E600BDD3C7 /* Message.swift in Sources */,
 				4F1AC3C22959E232004ED825 /* Email - Password.swift in Sources */,
 				03A4E7172960878C00BDD3C7 /* Users.swift in Sources */,
