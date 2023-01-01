@@ -14,7 +14,6 @@ class NewMesswController: UIViewController {
         return tableView
     }()
     
-    let cellid = "cellid"
     var users = [Users] ()
     
     let searchUsersField: UITextField = {
