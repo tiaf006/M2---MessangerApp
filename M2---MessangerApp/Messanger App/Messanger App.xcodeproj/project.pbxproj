@@ -45,6 +45,7 @@
 		4F2F41DE2960D30D00C35ED0 /* NewMesswController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F2F41DD2960D30D00C35ED0 /* NewMesswController.swift */; };
 		B11EE795295B01ED00522CD9 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = B11EE794295B01ED00522CD9 /* GoogleService-Info.plist */; };
 		B11EE7CE295B0D1A00522CD9 /* UserStateViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B11EE7CD295B0D1A00522CD9 /* UserStateViewController.swift */; };
+		B188779C2961A37D0079D636 /* searchUserCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B188779B2961A37D0079D636 /* searchUserCell.swift */; };
 		B18C378D2959D84300132E73 /* ConversationsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B18C378C2959D84300132E73 /* ConversationsViewController.swift */; };
 		B18C378F2959D8BF00132E73 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B18C378E2959D8BF00132E73 /* LoginViewController.swift */; };
 		B18C37912959D94100132E73 /* RegisterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B18C37902959D94100132E73 /* RegisterViewController.swift */; };
@@ -67,6 +68,7 @@
 		4F2F41DD2960D30D00C35ED0 /* NewMesswController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewMesswController.swift; sourceTree = "<group>"; };
 		B11EE794295B01ED00522CD9 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		B11EE7CD295B0D1A00522CD9 /* UserStateViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserStateViewController.swift; sourceTree = "<group>"; };
+		B188779B2961A37D0079D636 /* searchUserCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = searchUserCell.swift; sourceTree = "<group>"; };
 		B18C378C2959D84300132E73 /* ConversationsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConversationsViewController.swift; sourceTree = "<group>"; };
 		B18C378E2959D8BF00132E73 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		B18C37902959D94100132E73 /* RegisterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterViewController.swift; sourceTree = "<group>"; };
@@ -153,7 +155,9 @@
 			children = (
 				B10F955F2959B10200F6F20E /* LogIn-Regester */,
 				B1BE37242959A89F00D36E64 /* ViewController.swift */,
+				0BEA091A295AEA0400447860 /* ProfileViewController.swift */,
 				4F2F41DD2960D30D00C35ED0 /* NewMesswController.swift */,
+				B188779B2961A37D0079D636 /* searchUserCell.swift */,
 				4F2F41DB2960B7EE00C35ED0 /* UesrsTableViewController.swift */,
 				B18C378C2959D84300132E73 /* ConversationsViewController.swift */,
 				03A4E71429606FC400BDD3C7 /* Chats.swift */,
@@ -167,7 +171,6 @@
 				B18C378E2959D8BF00132E73 /* LoginViewController.swift */,
 				4F1AC3C12959E232004ED825 /* Email - Password.swift */,
 				B18C37902959D94100132E73 /* RegisterViewController.swift */,
-				0BEA091A295AEA0400447860 /* ProfileViewController.swift */,
 			);
 			path = "LogIn-Regester";
 			sourceTree = "<group>";
@@ -317,6 +320,7 @@
 				4F2F41DC2960B7EE00C35ED0 /* UesrsTableViewController.swift in Sources */,
 				03A4E71529606FC400BDD3C7 /* Chats.swift in Sources */,
 				B1BE37232959A89F00D36E64 /* SceneDelegate.swift in Sources */,
+				B188779C2961A37D0079D636 /* searchUserCell.swift in Sources */,
 				B11EE7CE295B0D1A00522CD9 /* UserStateViewController.swift in Sources */,
 				B18C37912959D94100132E73 /* RegisterViewController.swift in Sources */,
 				B18C378F2959D8BF00132E73 /* LoginViewController.swift in Sources */,

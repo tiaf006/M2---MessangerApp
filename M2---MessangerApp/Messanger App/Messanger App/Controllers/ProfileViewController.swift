@@ -60,6 +60,13 @@ class ProfileViewController: UIViewController {
             self.layer.cornerRadius = 150.0/2.0
             self.clipsToBounds = true
         }
-        
-    }
+        func RounedSmall(){
+            self.heightAnchor.constraint(equalToConstant: 50).isActive = true
+            self.widthAnchor.constraint(equalToConstant: 50).isActive = true
+            self.layer.masksToBounds = false
+            self.frame(forAlignmentRect: CGRectMake(0, 0, 50, 50))
+            self.contentMode = .scaleAspectFill
+            self.layer.cornerRadius = 50.0/2.0
+            self.clipsToBounds = true
+        }    }
 
