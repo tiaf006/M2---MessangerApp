@@ -7,9 +7,9 @@
 
 import UIKit
 
-class Users : NSObject{
+class Users : NSObject, Codable{
     var id : String?
-    var name : String?
     var email : String?
-    var imageProfile : String?
+    var name : String?
+   // var imageProfile : String?
 }

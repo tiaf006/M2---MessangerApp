@@ -9,7 +9,7 @@ import UIKit
 import Firebase
 
 class Chats: UICollectionViewController, UITextFieldDelegate {
-    
+  /*
     var user : Users?{
         didSet{
             navigationItem.title = user?.name
@@ -23,16 +23,16 @@ class Chats: UICollectionViewController, UITextFieldDelegate {
         textField.delegate = self
         return textField
     }()
-    
+    */
     override func viewDidLoad(){
         super.viewDidLoad()
         
         collectionView.backgroundColor = UIColor.white
         
-        setUpInput()
+       // setUpInput()
     }
     
-    func setUpInput(){
+  /*  func setUpInput(){
         let container = UIView()
         container.backgroundColor = UIColor.white
         container.translatesAutoresizingMaskIntoConstraints = false
@@ -103,5 +103,5 @@ class Chats: UICollectionViewController, UITextFieldDelegate {
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         sendMessage()
         return true
-    }
+    } */
 }

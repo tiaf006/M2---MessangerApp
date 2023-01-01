@@ -54,6 +54,7 @@
 		B1BE37282959A89F00D36E64 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B1BE37262959A89F00D36E64 /* Main.storyboard */; };
 		B1BE372A2959A8A100D36E64 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B1BE37292959A8A100D36E64 /* Assets.xcassets */; };
 		B1BE372D2959A8A100D36E64 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B1BE372B2959A8A100D36E64 /* LaunchScreen.storyboard */; };
+		B1ECEB78295DBCFC00B8177D /* MessageKit in Frameworks */ = {isa = PBXBuildFile; productRef = B1ECEB77295DBCFC00B8177D /* MessageKit */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -93,6 +94,7 @@
 				03D3BFCA295DAE3300C72D0E /* FirebaseAnalytics in Frameworks */,
 				03D3BFD6295DAE3300C72D0E /* FirebaseAuth in Frameworks */,
 				03D3BFE0295DAE3300C72D0E /* FirebaseDynamicLinks in Frameworks */,
+				B1ECEB78295DBCFC00B8177D /* MessageKit in Frameworks */,
 				03D3BFDA295DAE3300C72D0E /* FirebaseCrashlytics in Frameworks */,
 				03D3BFF2295DAE3300C72D0E /* FirebaseMLModelDownloader in Frameworks */,
 				03D3BFDE295DAE3300C72D0E /* FirebaseDatabaseSwift in Frameworks */,
@@ -119,15 +121,6 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		03A4E71A29608A5900BDD3C7 /* New Group */ = {
-			isa = PBXGroup;
-			children = (
-				03A4E718296089E600BDD3C7 /* Message.swift */,
-				03A4E7162960878C00BDD3C7 /* Users.swift */,
-			);
-			path = "New Group";
-			sourceTree = "<group>";
-		};
 		B10F95582959AD6200F6F20E /* Resources */ = {
 			isa = PBXGroup;
 			children = (
@@ -140,6 +133,8 @@
 		B10F95592959B07500F6F20E /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				03A4E718296089E600BDD3C7 /* Message.swift */,
+				03A4E7162960878C00BDD3C7 /* Users.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -158,9 +153,11 @@
 			children = (
 				B10F955F2959B10200F6F20E /* LogIn-Regester */,
 				B1BE37242959A89F00D36E64 /* ViewController.swift */,
+				0BEA091A295AEA0400447860 /* ProfileViewController.swift */,
+				4F2F41DD2960D30D00C35ED0 /* NewMesswController.swift */,
+				4F2F41DB2960B7EE00C35ED0 /* UesrsTableViewController.swift */,
 				B18C378C2959D84300132E73 /* ConversationsViewController.swift */,
 				03A4E71429606FC400BDD3C7 /* Chats.swift */,
-				03A4E71A29608A5900BDD3C7 /* New Group */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -171,9 +168,6 @@
 				B18C378E2959D8BF00132E73 /* LoginViewController.swift */,
 				4F1AC3C12959E232004ED825 /* Email - Password.swift */,
 				B18C37902959D94100132E73 /* RegisterViewController.swift */,
-				0BEA091A295AEA0400447860 /* ProfileViewController.swift */,
-				4F2F41DD2960D30D00C35ED0 /* NewMesswController.swift */,
-				4F2F41DB2960B7EE00C35ED0 /* UesrsTableViewController.swift */,
 			);
 			path = "LogIn-Regester";
 			sourceTree = "<group>";
@@ -198,8 +192,8 @@
 			isa = PBXGroup;
 			children = (
 				B11EE794295B01ED00522CD9 /* GoogleService-Info.plist */,
-				B10F955B2959B09E00F6F20E /* Controllers */,
 				B10F955A2959B08200F6F20E /* Views */,
+				B10F955B2959B09E00F6F20E /* Controllers */,
 				B10F95592959B07500F6F20E /* Models */,
 				B10F95582959AD6200F6F20E /* Resources */,
 				B1BE37292959A8A100D36E64 /* Assets.xcassets */,
@@ -255,6 +249,7 @@
 				03D3BFF9295DAE3300C72D0E /* FirebaseRemoteConfigSwift */,
 				03D3BFFB295DAE3300C72D0E /* FirebaseStorage */,
 				03D3BFFD295DAE3300C72D0E /* FirebaseStorageCombine-Community */,
+				B1ECEB77295DBCFC00B8177D /* MessageKit */,
 			);
 			productName = "Messanger App";
 			productReference = B1BE371D2959A89F00D36E64 /* Messanger App.app */;
@@ -287,6 +282,7 @@
 			packageReferences = (
 				0349414A295B93CB00824901 /* XCRemoteSwiftPackageReference "GoogleSignIn-iOS" */,
 				03D3BFC8295DAE3300C72D0E /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */,
+				B1ECEB76295DBCFC00B8177D /* XCRemoteSwiftPackageReference "MessageKit" */,
 			);
 			productRefGroup = B1BE371E2959A89F00D36E64 /* Products */;
 			projectDirPath = "";
@@ -571,6 +567,14 @@
 				kind = branch;
 			};
 		};
+		B1ECEB76295DBCFC00B8177D /* XCRemoteSwiftPackageReference "MessageKit" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/MessageKit/MessageKit";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 4.0.0;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -718,6 +722,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 03D3BFC8295DAE3300C72D0E /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
 			productName = "FirebaseStorageCombine-Community";
+		};
+		B1ECEB77295DBCFC00B8177D /* MessageKit */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = B1ECEB76295DBCFC00B8177D /* XCRemoteSwiftPackageReference "MessageKit" */;
+			productName = MessageKit;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};

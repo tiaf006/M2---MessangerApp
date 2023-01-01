@@ -105,10 +105,13 @@ class RegisterViewController: UIViewController, UITextFieldDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .white
+    }
+    
+    override func viewDidLayoutSubviews() {
+        super.viewDidLayoutSubviews()
         addSubViews()
         layOuts()
     }
-    
     
     func addSubViews(){
         emailField.delegate = self
@@ -137,6 +140,8 @@ class RegisterViewController: UIViewController, UITextFieldDelegate {
     
     
     @objc func layOuts(){
+        navigationItem.title = "Register"
+        
         scrollView.translatesAutoresizingMaskIntoConstraints = false
         scrollView.topAnchor.constraint(equalTo: view.topAnchor,constant: 0).isActive = true
         scrollView.bottomAnchor.constraint(equalTo: view.bottomAnchor,constant: -0).isActive = true
