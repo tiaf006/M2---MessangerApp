@@ -153,6 +153,7 @@
 			children = (
 				B10F955F2959B10200F6F20E /* LogIn-Regester */,
 				B1BE37242959A89F00D36E64 /* ViewController.swift */,
+				0BEA091A295AEA0400447860 /* ProfileViewController.swift */,
 				4F2F41DD2960D30D00C35ED0 /* NewMesswController.swift */,
 				4F2F41DB2960B7EE00C35ED0 /* UesrsTableViewController.swift */,
 				B18C378C2959D84300132E73 /* ConversationsViewController.swift */,
@@ -167,7 +168,6 @@
 				B18C378E2959D8BF00132E73 /* LoginViewController.swift */,
 				4F1AC3C12959E232004ED825 /* Email - Password.swift */,
 				B18C37902959D94100132E73 /* RegisterViewController.swift */,
-				0BEA091A295AEA0400447860 /* ProfileViewController.swift */,
 			);
 			path = "LogIn-Regester";
 			sourceTree = "<group>";
